@@ -1,0 +1,1747 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f7f9fd;
+  color: #172337;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  height: 80px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #dce3ed;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 42px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+
+.logo {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 125px;
+
+  line-height: 1;
+
+  text-decoration: none;
+}
+
+.logo span {
+  color: #095fe0;
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+.logo small {
+  color: #263448;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  margin-top: 3px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.navbar a {
+  color: #454e60;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  color: #1463e6;
+}
+
+.navbar a.active {
+  color: #1463e6;
+
+  font-weight: 700;
+}
+
+/* HEADER RIGHT */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.login {
+  color: #3d4657;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+.book-header-btn {
+  border: none;
+
+  background: #2465eb;
+
+  color: #ffffff;
+
+  border-radius: 10px;
+
+  padding: 11px 22px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  box-shadow: 0 3px 8px rgba(36, 101, 235, 0.2);
+
+  transition: 0.2s;
+}
+
+.book-header-btn:hover {
+  background: #1555ca;
+
+  transform: translateY(-1px);
+}
+
+/* PROFILE */
+
+.profile {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  border: 2px solid #edf0f5;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.doctor-hero {
+  max-width: 1240px;
+
+  min-height: 170px;
+
+  margin: 28px auto;
+
+  padding: 25px 28px;
+
+  background: linear-gradient(100deg, #eef2ff, #f0f4ff);
+
+  border-radius: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+/* HERO TEXT */
+
+.network-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #075ddd;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  margin-bottom: 9px;
+}
+
+.network-label i {
+  font-size: 12px;
+}
+
+.doctor-hero h1 {
+  font-size: 31px;
+
+  line-height: 1.1;
+
+  letter-spacing: -1.2px;
+
+  color: #122137;
+
+  margin-bottom: 7px;
+}
+
+.doctor-hero p {
+  max-width: 720px;
+
+  color: #59677b;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+/* HERO STATUS */
+
+.hero-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  flex-shrink: 0;
+}
+
+.status-box {
+  background: #ffffff;
+
+  border: 1px solid #e3e8f2;
+
+  border-radius: 9px;
+
+  padding: 11px 16px;
+
+  color: #233148;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  box-shadow: 0 3px 10px rgba(30, 60, 100, 0.03);
+}
+
+.status-box i {
+  color: #1265e9;
+
+  margin-right: 6px;
+}
+
+.status-dot {
+  display: inline-block;
+
+  width: 9px;
+  height: 9px;
+
+  background: #2467e9;
+
+  border-radius: 50%;
+
+  margin-right: 7px;
+}
+
+/* =========================================================
+   MAIN DOCTOR SECTION
+========================================================= */
+
+.doctor-section {
+  max-width: 1240px;
+
+  margin: 0 auto;
+
+  padding-bottom: 40px;
+
+  display: grid;
+
+  grid-template-columns: 280px 1fr;
+
+  gap: 22px;
+
+  align-items: start;
+}
+
+/* =========================================================
+   FILTER SIDEBAR
+========================================================= */
+
+.filter-sidebar {
+  background: #ffffff;
+
+  border: 1px solid #e0e6ef;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  position: sticky;
+
+  top: 100px;
+}
+
+/* FILTER HEADER */
+
+.filter-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.filter-header h2 {
+  font-size: 16px;
+
+  letter-spacing: -0.4px;
+}
+
+.filter-header h2 i {
+  color: #1766e7;
+
+  font-size: 14px;
+
+  margin-right: 7px;
+}
+
+.clear-btn {
+  background: transparent;
+
+  border: none;
+
+  color: #0e61dc;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+/* FILTER GROUP */
+
+.filter-group {
+  margin-bottom: 22px;
+}
+
+.filter-group > label,
+.filter-title label {
+  display: block;
+
+  color: #26344a;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  margin-bottom: 7px;
+}
+
+/* SEARCH */
+
+.filter-search {
+  height: 38px;
+
+  background: #f1f4ff;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 10px;
+
+  gap: 8px;
+}
+
+.filter-search i {
+  color: #5f6d83;
+
+  font-size: 12px;
+}
+
+.filter-search input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 9px;
+
+  color: #35445a;
+}
+
+.filter-search input::placeholder {
+  color: #758196;
+}
+
+/* FILTER TITLE */
+
+.filter-title {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.filter-title label {
+  margin-bottom: 0;
+}
+
+.filter-title span {
+  color: #5b6474;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+.filter-title strong {
+  color: #1465e8;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   CHECKBOXES
+========================================================= */
+
+.department-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.checkbox-row {
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+.checkbox-row input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.custom-checkbox {
+  width: 14px;
+  height: 14px;
+
+  border-radius: 3px;
+
+  background: #2166eb;
+
+  margin-right: 8px;
+
+  position: relative;
+}
+
+.checkbox-row input:not(:checked) + .custom-checkbox {
+  background: white;
+
+  border: 1px solid #ccd5e3;
+}
+
+.checkbox-row input:checked + .custom-checkbox::after {
+  content: "✓";
+
+  position: absolute;
+
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  left: 3px;
+
+  top: -1px;
+}
+
+.checkbox-name {
+  font-size: 11px;
+
+  color: #39475d;
+}
+
+.doctor-count {
+  margin-left: auto;
+
+  background: #f0f3fb;
+
+  color: #5f6c80;
+
+  border-radius: 4px;
+
+  padding: 4px 7px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   CONSULTATION TYPE
+========================================================= */
+
+.consultation-tabs {
+  height: 32px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  background: #edf1ff;
+
+  border-radius: 10px;
+
+  padding: 3px;
+}
+
+.consultation-tabs button {
+  border: none;
+
+  background: transparent;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  color: #5d687a;
+
+  font-weight: 600;
+}
+
+.consultation-tabs button.selected {
+  background: #2166eb;
+
+  color: white;
+
+  box-shadow: 0 2px 5px rgba(33, 102, 235, 0.2);
+}
+
+/* =========================================================
+   AVAILABILITY
+========================================================= */
+
+.availability-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+.availability-buttons button {
+  border: none;
+
+  background: #eef2fa;
+
+  color: #344257;
+
+  padding: 7px 10px;
+
+  border-radius: 15px;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+.availability-buttons button.selected {
+  background: #2467eb;
+
+  color: white;
+}
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 5px;
+}
+
+.experience-grid button {
+  border: none;
+
+  background: #eef2fa;
+
+  border-radius: 7px;
+
+  padding: 8px 3px;
+
+  color: #4a5669;
+}
+
+.experience-grid button strong {
+  display: block;
+
+  font-size: 8px;
+}
+
+.experience-grid button span {
+  display: block;
+
+  font-size: 8px;
+
+  margin-top: 2px;
+}
+
+.experience-grid button.selected {
+  background: #e4edff;
+
+  color: #1562df;
+}
+
+/* =========================================================
+   GENDER
+========================================================= */
+
+.gender-options {
+  display: flex;
+
+  gap: 10px;
+}
+
+.gender-options label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  color: #3d495d;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+.gender-options input {
+  display: none;
+}
+
+.gender-options label span {
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  border: 1px solid #8e99aa;
+
+  position: relative;
+}
+
+.gender-options input:checked + span {
+  border-color: #2166eb;
+}
+
+.gender-options input:checked + span::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #2166eb;
+
+  top: 2px;
+  left: 2px;
+}
+
+/* =========================================================
+   FEE RANGE
+========================================================= */
+
+.range-line {
+  width: 100%;
+
+  height: 4px;
+
+  background: #dce4f1;
+
+  border-radius: 10px;
+
+  position: relative;
+
+  margin-top: 14px;
+}
+
+.range-progress {
+  position: absolute;
+
+  left: 0;
+
+  width: 70%;
+
+  height: 100%;
+
+  background: #2166eb;
+
+  border-radius: 10px;
+}
+
+.range-progress::before,
+.range-progress::after {
+  content: "";
+
+  position: absolute;
+
+  width: 11px;
+  height: 11px;
+
+  background: #2166eb;
+
+  border: 2px solid white;
+
+  border-radius: 50%;
+
+  top: -4px;
+
+  box-shadow: 0 0 0 1px #2166eb;
+}
+
+.range-progress::before {
+  left: -1px;
+}
+
+.range-progress::after {
+  right: -1px;
+}
+
+.range-values {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 8px;
+
+  color: #647186;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   APPLY FILTER
+========================================================= */
+
+.apply-filter {
+  width: 100%;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2166eb;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  box-shadow: 0 4px 10px rgba(33, 102, 235, 0.15);
+
+  margin-top: 2px;
+}
+
+.apply-filter:hover {
+  background: #1556cb;
+}
+
+/* =========================================================
+   RESULTS HEADER
+========================================================= */
+
+.doctor-results {
+  min-width: 0;
+}
+
+.results-header {
+  height: 54px;
+
+  background: white;
+
+  border: 1px solid #e0e6ef;
+
+  border-radius: 11px;
+
+  padding: 0 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.result-summary {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.result-summary > strong {
+  font-size: 17px;
+
+  color: #17243a;
+}
+
+.result-summary > span:not(.filter-tag) {
+  font-size: 10px;
+
+  color: #697488;
+}
+
+.divider {
+  width: 1px;
+
+  height: 20px;
+
+  background: #dce2eb;
+
+  margin: 0 3px;
+}
+
+.filter-tag {
+  background: #e8f0ff;
+
+  color: #1462dc;
+
+  padding: 5px 8px;
+
+  border-radius: 15px;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.filter-tag i {
+  margin-left: 4px;
+
+  font-size: 7px;
+}
+
+/* SORT */
+
+.sort {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  white-space: nowrap;
+}
+
+.sort span {
+  color: #5c6678;
+
+  font-size: 10px;
+}
+
+.sort select {
+  height: 32px;
+
+  min-width: 140px;
+
+  background: #f0f3fb;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 0 10px;
+
+  outline: none;
+
+  color: #27354b;
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   DOCTOR GRID
+========================================================= */
+
+.doctors-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+/* =========================================================
+   DOCTOR CARD
+========================================================= */
+
+.doctor-card {
+  background: #ffffff;
+
+  border: 1px solid #e0e6ef;
+
+  border-radius: 12px;
+
+  padding: 19px;
+
+  transition: 0.2s;
+}
+
+.doctor-card:hover {
+  border-color: #bfd2f3;
+
+  box-shadow: 0 7px 22px rgba(35, 83, 145, 0.07);
+
+  transform: translateY(-2px);
+}
+
+/* DOCTOR MAIN */
+
+.doctor-main {
+  display: grid;
+
+  grid-template-columns: 56px 1fr auto;
+
+  column-gap: 10px;
+
+  position: relative;
+
+  min-height: 70px;
+}
+
+/* PHOTO */
+
+.doctor-photo {
+  width: 56px;
+  height: 56px;
+
+  position: relative;
+
+  border-radius: 9px;
+
+  overflow: visible;
+}
+
+.doctor-photo img {
+  width: 56px;
+  height: 56px;
+
+  object-fit: cover;
+
+  border-radius: 9px;
+}
+
+/* VERIFIED */
+
+.verified {
+  position: absolute;
+
+  bottom: -4px;
+
+  right: -4px;
+
+  width: 15px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background: #1165e7;
+
+  border: 2px solid white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  font-size: 7px;
+}
+
+/* DETAILS */
+
+.doctor-details {
+  padding-right: 5px;
+}
+
+.doctor-details h2 {
+  color: #16243a;
+
+  font-size: 15px;
+
+  line-height: 1.25;
+
+  margin-bottom: 2px;
+
+  font-weight: 700;
+}
+
+.doctor-details a {
+  color: #075fdc;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  display: block;
+
+  margin-bottom: 3px;
+}
+
+.doctor-details p {
+  color: #657286;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+/* RATING */
+
+.doctor-rating {
+  position: absolute;
+
+  right: 0;
+
+  top: 0;
+
+  background: #f1f4fc;
+
+  border-radius: 5px;
+
+  padding: 5px 7px;
+
+  white-space: nowrap;
+
+  font-size: 9px;
+}
+
+.doctor-rating span {
+  color: #f1a000;
+
+  font-size: 11px;
+}
+
+.doctor-rating strong {
+  color: #344158;
+
+  margin-left: 2px;
+}
+
+.doctor-rating small {
+  color: #6d7788;
+
+  font-size: 8px;
+}
+
+/* FEE */
+
+.doctor-fee {
+  position: absolute;
+
+  right: 0;
+
+  bottom: 0;
+
+  text-align: right;
+}
+
+.doctor-fee strong {
+  display: block;
+
+  color: #075fdc;
+
+  font-size: 17px;
+
+  line-height: 1;
+}
+
+.doctor-fee span {
+  color: #5f697b;
+
+  font-size: 8px;
+}
+
+/* =========================================================
+   DOCTOR TAGS
+========================================================= */
+
+.doctor-tags {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 15px;
+
+  margin-bottom: 12px;
+
+  flex-wrap: wrap;
+}
+
+.doctor-tags span {
+  background: #e9f0ff;
+
+  color: #2163d9;
+
+  padding: 5px 8px;
+
+  border-radius: 12px;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+.doctor-tags span:last-child {
+  background: #f0f2f6;
+
+  color: #657083;
+}
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.doctor-location {
+  min-height: 39px;
+
+  background: #edf2ff;
+
+  border-radius: 8px;
+
+  padding: 9px 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+.doctor-location span {
+  color: #34425a;
+
+  font-size: 9px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  min-width: 0;
+}
+
+.doctor-location span i {
+  color: #1565e5;
+}
+
+.doctor-location strong {
+  color: #075fdc;
+
+  font-size: 8px;
+
+  white-space: nowrap;
+}
+
+.doctor-location strong i {
+  margin-right: 3px;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.doctor-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+}
+
+.doctor-actions button {
+  height: 31px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.profile-btn {
+  background: #eef2fc;
+
+  border: none;
+
+  color: #243249;
+}
+
+.profile-btn:hover {
+  background: #e2e8f5;
+}
+
+.appointment-btn {
+  background: #2166eb;
+
+  border: none;
+
+  color: white;
+
+  box-shadow: 0 2px 5px rgba(33, 102, 235, 0.15);
+}
+
+.appointment-btn:hover {
+  background: #1555cb;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+  height: 58px;
+
+  background: white;
+
+  border: 1px solid #e0e6ef;
+
+  border-radius: 11px;
+
+  margin-top: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 20px;
+}
+
+.pagination button {
+  border: none;
+
+  background: transparent;
+
+  color: #26344a;
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+.pagination .next {
+  color: #0e61dc;
+
+  font-weight: 600;
+}
+
+.pagination .previous {
+  color: #5d6778;
+}
+
+.page-numbers {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.page-numbers button {
+  width: 31px;
+  height: 31px;
+
+  border-radius: 7px;
+}
+
+.page-numbers button.current {
+  background: #2166eb;
+
+  color: white;
+
+  font-weight: 700;
+}
+
+.page-numbers span {
+  font-size: 10px;
+
+  color: #5c6779;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  background: white;
+
+  border-top: 1px solid #e0e6ef;
+
+  margin-top: 20px;
+
+  padding: 42px 25px;
+}
+
+.footer-grid {
+  max-width: 1240px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr 1.3fr 1.4fr;
+
+  gap: 50px;
+}
+
+/* FOOTER LOGO */
+
+.footer-logo {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 14px;
+}
+
+.footer-logo span {
+  color: #1263df;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+.footer-logo small {
+  font-size: 7px;
+
+  font-weight: 700;
+
+  color: #263448;
+}
+
+/* ABOUT */
+
+.footer-about p {
+  max-width: 250px;
+
+  color: #788598;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.footer-column h4 {
+  font-size: 9px;
+
+  color: #253349;
+
+  margin-bottom: 5px;
+}
+
+.footer-column a {
+  color: #718096;
+
+  font-size: 9px;
+}
+
+.footer-column a:hover {
+  color: #1264e2;
+}
+
+/* EMERGENCY */
+
+.emergency-box {
+  background: #fff5f5;
+
+  border: 1px solid #ffdada;
+
+  border-radius: 9px;
+
+  padding: 12px;
+}
+
+.emergency-box span {
+  display: block;
+
+  color: #ef4f4f;
+
+  font-size: 8px;
+
+  margin-bottom: 4px;
+}
+
+.emergency-box strong {
+  display: block;
+
+  color: #c92c2c;
+
+  font-size: 14px;
+}
+
+.emergency p {
+  color: #7b8798;
+
+  font-size: 8px;
+
+  margin-top: 10px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .header {
+    padding: 0 22px;
+  }
+
+  .navbar {
+    gap: 16px;
+  }
+
+  .navbar a {
+    font-size: 11px;
+  }
+
+  .doctor-hero,
+  .doctor-section {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .doctor-section {
+    grid-template-columns: 250px 1fr;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-main {
+    grid-template-columns: 65px 1fr auto;
+  }
+}
+
+/* =========================================================
+   MOBILE / SMALL TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+  .header {
+    height: 70px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .doctor-hero {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-top: 20px;
+
+    padding: 22px;
+  }
+
+  .hero-status {
+    width: 100%;
+  }
+
+  .status-box {
+    flex: 1;
+
+    text-align: center;
+  }
+
+  .doctor-section {
+    display: block;
+
+    margin-left: 20px;
+
+    margin-right: 20px;
+  }
+
+  .filter-sidebar {
+    position: static;
+
+    margin-bottom: 20px;
+  }
+
+  .filter-header {
+    cursor: pointer;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .header {
+    padding: 0 15px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .login {
+    display: none;
+  }
+
+  .book-header-btn {
+    padding: 9px 12px;
+
+    font-size: 9px;
+  }
+
+  .profile {
+    width: 30px;
+    height: 30px;
+  }
+
+  .doctor-hero {
+    margin: 15px;
+
+    padding: 20px;
+
+    min-height: auto;
+  }
+
+  .doctor-hero h1 {
+    font-size: 25px;
+  }
+
+  .doctor-hero p {
+    font-size: 10px;
+  }
+
+  .hero-status {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 7px;
+  }
+
+  .doctor-section {
+    margin: 0 15px;
+  }
+
+  .results-header {
+    height: auto;
+
+    padding: 12px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  .result-summary {
+    flex-wrap: wrap;
+  }
+
+  .sort {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .sort select {
+    flex: 1;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-card {
+    padding: 15px;
+  }
+
+  .doctor-main {
+    grid-template-columns: 55px 1fr;
+  }
+
+  .doctor-details {
+    padding-right: 70px;
+  }
+
+  .doctor-rating {
+    right: 0;
+
+    top: 0;
+  }
+
+  .doctor-fee {
+    right: 0;
+
+    bottom: 0;
+  }
+
+  .doctor-location {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .pagination {
+    padding: 0 10px;
+  }
+
+  .pagination .previous {
+    font-size: 8px;
+  }
+
+  .pagination .next {
+    font-size: 8px;
+  }
+
+  .page-numbers {
+    gap: 2px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+}

@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarePulse - Schedule Medical Consultation</title>
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="Doctor_payment_css.css" />
+    <style>
+      /* Ensure clickable elements show pointer cursors */
+      .date-card,
+      .time-btn,
+      .radio-pill-card,
+      .format-card {
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div class="brand-text">
+          <span>CarePulse</span>
+          <small>HEALTH NETWORK</small>
+        </div>
+      </a>
+
+      <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Find a Doctor</a>
+        <a href="#">Departments</a>
+        <a href="#" class="active">Appointments</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#" class="login">Log In</a>
+        <button class="book-header-btn">Book Appointment</button>
+        <div class="profile">
+          <img
+            src="https://i.pravatar.cc/100?img=33"
+            alt="User Profile Avatar"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main class="main-wrapper">
+      <!-- HERO TOP STEP CARD -->
+      <section class="hero-step-card">
+        <div class="hero-top-row">
+          <div>
+            <div class="hero-subtitle">CAREPULSE SCHEDULING CONCIERGE</div>
+            <h1 class="hero-title">Schedule Medical Consultation</h1>
+          </div>
+          <div class="security-badge">
+            <i class="fa-solid fa-lock"></i>
+            <span>256-Bit Encrypted Telehealth Link</span>
+          </div>
+        </div>
+
+        <!-- PROGRESS STEPS -->
+        <div class="progress-bar-container">
+          <div class="step-item completed">
+            <div class="step-number"><i class="fa-solid fa-check"></i></div>
+            <span class="step-label-num">Step 1</span>
+            <span class="step-title">Doctor & Specialty</span>
+          </div>
+
+          <div class="step-item active">
+            <div class="step-number">2</div>
+            <span class="step-label-num">Step 2</span>
+            <span class="step-title">Date & Time</span>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <span class="step-label-num">Step 3</span>
+            <span class="step-title">Patient Details</span>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <span class="step-label-num">Step 4</span>
+            <span class="step-title">Consultation Format</span>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">5</div>
+            <span class="step-label-num">Step 5</span>
+            <span class="step-title">Payment & Confirm</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TWO COLUMN GRID -->
+      <div class="booking-grid">
+        <!-- LEFT COLUMN: FORM CONTROLS -->
+        <div class="form-column">
+          <div class="doctor-summary-card">
+            <div class="doc-left">
+              <div class="doc-avatar-wrap">
+                <img
+                  src="https://randomuser.me/api/portraits/women/65.jpg"
+                  alt="Dr. Priya Sharma"
+                />
+                <div class="doc-verified-check">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              </div>
+              <div class="doc-details">
+                <h3>
+                  Dr. Priya Sharma, MD
+                  <span class="certified-badge"
+                    ><i class="fa-solid fa-shield-halved"></i> Certified</span
+                  >
+                </h3>
+                <p class="doc-subtext">
+                  Senior Cardiologist • CarePulse Central Clinic (Suite 402)
+                </p>
+                <div class="doc-meta">
+                  <span class="star">★</span>
+                  <strong>4.96 (340+ reviews)</strong> • Standard Consultation:
+                  <span class="blue-fee">$95.00</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn-change-doc">Change Doctor</button>
+          </div>
+
+          <!-- DATE SELECTION CARD -->
+          <div class="card-box">
+            <div class="card-header-row">
+              <div class="card-title-wrap">
+                <i class="fa-regular fa-calendar-check card-title-icon"></i>
+                <h2>Select Appointment Date</h2>
+              </div>
+              <div class="month-picker">
+                <button><i class="fa-solid fa-chevron-left"></i></button>
+                <span>October 2026</span>
+                <button><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+
+            <div class="dates-grid">
+              <div
+                class="date-card selected"
+                data-day="Monday"
+                data-date="Oct 12, 2026"
+              >
+                <div class="day-name">MON</div>
+                <div class="day-num">12</div>
+                <span class="slots-badge">10 slots</span>
+              </div>
+
+              <div
+                class="date-card"
+                data-day="Tuesday"
+                data-date="Oct 13, 2026"
+              >
+                <div class="day-name">TUE</div>
+                <div class="day-num">13</div>
+                <span class="slots-badge">8 slots</span>
+              </div>
+
+              <div
+                class="date-card"
+                data-day="Wednesday"
+                data-date="Oct 14, 2026"
+              >
+                <div class="day-name">WED</div>
+                <div class="day-num">14</div>
+                <span class="slots-badge">14 slots</span>
+              </div>
+
+              <div
+                class="date-card"
+                data-day="Thursday"
+                data-date="Oct 15, 2026"
+              >
+                <div class="day-name">THU</div>
+                <div class="day-num">15</div>
+                <span class="slots-badge">5 slots</span>
+              </div>
+
+              <div class="date-card" data-day="Friday" data-date="Oct 16, 2026">
+                <div class="day-name">FRI</div>
+                <div class="day-num">16</div>
+                <span class="slots-badge">12 slots</span>
+              </div>
+
+              <div
+                class="date-card"
+                data-day="Saturday"
+                data-date="Oct 17, 2026"
+              >
+                <div class="day-name">SAT</div>
+                <div class="day-num">17</div>
+                <span class="slots-badge">4 slots</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TIME SLOT SELECTION CARD -->
+          <div class="card-box">
+            <div class="card-header-row">
+              <div class="card-title-wrap">
+                <i class="fa-regular fa-clock card-title-icon"></i>
+                <h2>Select Time Slot</h2>
+              </div>
+              <span class="header-sub-note"
+                >Timezone: Eastern Time (US & Canada)</span
+              >
+            </div>
+
+            <!-- MORNING -->
+            <div class="time-session-block">
+              <div class="session-label">
+                <i class="fa-regular fa-sun"></i> Morning Session (9:00 AM -
+                12:00 PM)
+              </div>
+              <div class="time-buttons-row">
+                <button class="time-btn">09:00 AM</button>
+                <button class="time-btn">09:45 AM</button>
+                <button class="time-btn selected">10:30 AM</button>
+                <button class="time-btn">11:15 AM</button>
+              </div>
+            </div>
+
+            <!-- AFTERNOON -->
+            <div class="time-session-block">
+              <div class="session-label">
+                <i class="fa-solid fa-sun"></i> Afternoon Session (2:00 PM -
+                5:00 PM)
+              </div>
+              <div class="time-buttons-row">
+                <button class="time-btn">02:00 PM</button>
+                <button class="time-btn">02:45 PM</button>
+                <button class="time-btn">03:30 PM</button>
+                <button class="time-btn">04:15 PM</button>
+              </div>
+            </div>
+
+            <!-- EVENING -->
+            <div class="time-session-block">
+              <div class="session-label">
+                <i class="fa-regular fa-moon"></i> Evening Session (5:00 PM -
+                6:30 PM)
+              </div>
+              <div class="time-buttons-row">
+                <button class="time-btn">05:00 PM</button>
+                <button class="time-btn">05:45 PM</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT DETAILS CARD -->
+          <div class="card-box">
+            <div class="card-header-row">
+              <div class="card-title-wrap">
+                <i class="fa-regular fa-user card-title-icon"></i>
+                <h2>Patient Details</h2>
+              </div>
+              <span
+                class="header-sub-note"
+                style="color: var(--primary); font-weight: 600"
+                >Auto-filled via EHR Profile</span
+              >
+            </div>
+
+            <div class="radio-pills-row">
+              <div class="radio-pill-card selected">
+                <div class="radio-dot"></div>
+                <div class="radio-text-wrap">
+                  <strong>Booking for myself</strong>
+                  <span>Primary account holder</span>
+                </div>
+              </div>
+
+              <div class="radio-pill-card">
+                <div class="radio-dot"></div>
+                <div class="radio-text-wrap">
+                  <strong>Booking for family member</strong>
+                  <span>Child, spouse, or dependent</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="patient-form-grid">
+              <div>
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  class="ehr-input"
+                  value="Nickle Cooper"
+                  readonly
+                />
+              </div>
+
+              <div>
+                <label>Age</label>
+                <input type="text" class="ehr-input" value="32" readonly />
+              </div>
+
+              <div>
+                <label>Gender</label>
+                <input type="text" class="ehr-input" value="Male" readonly />
+              </div>
+
+              <div>
+                <label>Contact Phone</label>
+                <input
+                  type="text"
+                  class="ehr-input"
+                  value="+1 (555) 382-9912"
+                  readonly
+                />
+              </div>
+
+              <div class="form-group-full">
+                <label>Email Address</label>
+                <input
+                  type="text"
+                  class="ehr-input"
+                  value="nickle.cooper@email.com"
+                  readonly
+                />
+              </div>
+
+              <div class="form-group-full">
+                <label>Reason for Visit & Symptoms</label>
+                <textarea class="ehr-input" readonly>
+Routine heart checkup and blood pressure monitoring review.</textarea
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- CONSULTATION FORMAT SELECTION -->
+          <div class="card-box">
+            <div class="card-header-row">
+              <div class="card-title-wrap">
+                <i class="fa-regular fa-building card-title-icon"></i>
+                <h2>Choose Consultation Format</h2>
+              </div>
+            </div>
+
+            <div class="format-cards-grid">
+              <div class="format-card selected" id="format-in-person">
+                <div class="format-card-top">
+                  <div class="format-icon-box">
+                    <i class="fa-solid fa-hospital"></i>
+                  </div>
+                  <div class="format-check-badge">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                </div>
+                <h4>In-Person Clinic Visit</h4>
+                <p>CarePulse Central Medical Hub • Suite 402, Boston MA</p>
+                <div class="format-feature">
+                  <i class="fa-regular fa-circle-check"></i>
+                  <span>Includes full physical vitals & ECG check</span>
+                </div>
+              </div>
+
+              <div class="format-card" id="format-video">
+                <div class="format-card-top">
+                  <div class="format-icon-box">
+                    <i class="fa-solid fa-video"></i>
+                  </div>
+                  <div class="format-check-badge"></div>
+                </div>
+                <h4>Video Consultation</h4>
+                <p>Direct encrypted link sent via email & SMS portal</p>
+                <div class="format-feature">
+                  <i class="fa-solid fa-laptop"></i>
+                  <span>Browser, tablet, or smartphone ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDEBAR SUMMARY -->
+        <div class="summary-column">
+          <div class="summary-card">
+            <div class="summary-header">
+              <h3>Appointment Summary</h3>
+              <span class="draft-badge">DRAFT</span>
+            </div>
+
+            <div class="summary-doc-box">
+              <img
+                src="https://randomuser.me/api/portraits/women/65.jpg"
+                alt="Dr. Priya Sharma"
+              />
+              <div class="summary-doc-info">
+                <strong>Dr. Priya Sharma, MD</strong>
+                <span>Cardiology Specialist</span>
+              </div>
+            </div>
+
+            <div class="details-list">
+              <div class="details-item">
+                <div class="details-item-left">
+                  <i class="fa-regular fa-calendar"></i> Date:
+                </div>
+                <strong id="summary-date-text">Monday, Oct 12, 2026</strong>
+              </div>
+
+              <div class="details-item">
+                <div class="details-item-left">
+                  <i class="fa-regular fa-clock"></i> Time:
+                </div>
+                <strong id="summary-time-text">10:30 AM EST</strong>
+              </div>
+
+              <div class="details-item">
+                <div class="details-item-left">
+                  <i class="fa-solid fa-hospital" id="mode-icon"></i> Mode:
+                </div>
+                <strong id="summary-mode-text">In-Person Visit</strong>
+              </div>
+
+              <div class="details-item">
+                <div class="details-item-left">
+                  <i class="fa-regular fa-user"></i> Patient:
+                </div>
+                <strong>Nickle Mathew</strong>
+              </div>
+            </div>
+
+            <div class="insurance-pill">
+              <i class="fa-solid fa-shield-halved insurance-icon"></i>
+              <div class="insurance-text">
+                <small>INSURANCE APPLIED</small>
+                <strong>BlueCross Health Covered • Copay $20</strong>
+              </div>
+            </div>
+
+            <div class="fee-breakdown">
+              <div class="fee-title">FEE BREAKDOWN</div>
+
+              <div class="fee-row">
+                <span>Physician Consultation Fee</span>
+                <strong>$95.00</strong>
+              </div>
+
+              <div class="fee-row">
+                <span>Clinical Facility Fee</span>
+                <strong>$15.00</strong>
+              </div>
+
+              <div class="fee-row green-waiver">
+                <span
+                  ><i class="fa-solid fa-tag"></i> Network Membership
+                  Waiver</span
+                >
+                <strong>-$15.00</strong>
+              </div>
+
+              <div class="fee-row">
+                <span>Estimated Medical Taxes</span>
+                <strong>$0.00</strong>
+              </div>
+            </div>
+
+            <div class="total-due-row">
+              <div class="total-label" id="total-label-block">
+                <strong id="due-title-text">Due Today</strong>
+                <span id="due-sub-text">Pay at Clinic</span>
+              </div>
+              <div class="total-price" id="total-price-display">$0.00</div>
+            </div>
+            <button class="pay-btn" id="action-pay-btn" type="button">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span id="pay-btn-text">
+                Review & Confirm (Pay at Clinic – ₹0 Due Now)
+              </span>
+            </button>
+
+            <div class="cancellation-card" id="policy-card">
+              <i class="fa-solid fa-circle-info"></i>
+              <p id="policy-text">
+                <strong>In-person clinic visits:</strong> Pay at front desk
+                check-in ($0 charged now).
+              </p>
+            </div>
+          </div>
+
+          <div class="trust-badges-row">
+            <div class="trust-badge-card">
+              <i class="fa-solid fa-shield-cat"></i>
+              <div class="trust-badge-text">
+                <strong>HIPAA Secured</strong>
+                <span>Strict confidentiality</span>
+              </div>
+            </div>
+
+            <div class="trust-badge-card">
+              <i class="fa-solid fa-bell"></i>
+              <div class="trust-badge-text">
+                <strong>Instant SMS Alert</strong>
+                <span>Calendar sync</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a href="#" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="brand-text">
+              <span>CarePulse</span>
+            </div>
+          </a>
+          <p>
+            Delivering coordinated, compassionate medicine across regional
+            health centers. Modernizing healthcare access through connected
+            technology.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>NAVIGATION</h4>
+          <a href="#">Specialties</a>
+          <a href="#">Find a Doctor</a>
+          <a href="#">Schedule Appointment</a>
+          <a href="#">Patient Portal</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>DEPARTMENTS</h4>
+          <a href="#">Cardiology & Heart</a>
+          <a href="#">Neurology Sciences</a>
+          <a href="#">Comprehensive Oncology</a>
+          <a href="#">Pediatrics & Neonatal</a>
+        </div>
+
+        <div class="footer-col emergency-col">
+          <h4>EMERGENCY & SUPPORT</h4>
+          <div class="emergency-card">
+            <span>Emergency Trauma Hotline</span>
+            <strong>(800) 424-9111</strong>
+          </div>
+          <p class="address">750 Healthcare Blvd, Boston, MA</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE EVENT LISTENERS FOR DATES, TIMES, FORMAT, AND PATIENT TYPE -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ==============================
+        // ELEMENTS
+        // ==============================
+
+        const dateCards = document.querySelectorAll(".date-card");
+        const timeBtns = document.querySelectorAll(".time-btn");
+        const radioPills = document.querySelectorAll(".radio-pill-card");
+
+        const inPersonTab = document.getElementById("format-in-person");
+        const videoTab = document.getElementById("format-video");
+
+        // Summary elements
+        const summaryDateText = document.getElementById("summary-date-text");
+
+        const summaryTimeText = document.getElementById("summary-time-text");
+
+        const summaryModeText = document.getElementById("summary-mode-text");
+
+        const modeIcon = document.getElementById("mode-icon");
+
+        const dueTitleText = document.getElementById("due-title-text");
+
+        const dueSubText = document.getElementById("due-sub-text");
+
+        const totalPriceDisplay = document.getElementById(
+          "total-price-display",
+        );
+
+        const payBtnText = document.getElementById("pay-btn-text");
+
+        const policyText = document.getElementById("policy-text");
+
+        const payButton = document.getElementById("action-pay-btn");
+
+        // ==============================
+        // CURRENT APPOINTMENT VALUES
+        // ==============================
+
+        let selectedDate = "Monday, Oct 12, 2026";
+
+        let selectedTime = "10:30 AM";
+
+        let selectedFormat = "In-Person Consultation";
+
+        let selectedAmount = 0;
+
+        // ==============================
+        // 1. DATE SELECTION
+        // ==============================
+
+        dateCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            dateCards.forEach((c) => {
+              c.classList.remove("selected");
+            });
+
+            this.classList.add("selected");
+
+            const day = this.getAttribute("data-day");
+
+            const dateStr = this.getAttribute("data-date");
+
+            if (day && dateStr) {
+              selectedDate = `${day}, ${dateStr}`;
+
+              summaryDateText.textContent = selectedDate;
+            }
+          });
+        });
+
+        // ==============================
+        // 2. TIME SELECTION
+        // ==============================
+
+        timeBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            timeBtns.forEach((b) => {
+              b.classList.remove("selected");
+            });
+
+            this.classList.add("selected");
+
+            selectedTime = this.textContent.trim();
+
+            summaryTimeText.textContent = `${selectedTime} EST`;
+          });
+        });
+
+        // ==============================
+        // 3. PATIENT TYPE
+        // ==============================
+
+        radioPills.forEach((pill) => {
+          pill.addEventListener("click", function () {
+            radioPills.forEach((p) => {
+              p.classList.remove("selected");
+            });
+
+            this.classList.add("selected");
+          });
+        });
+
+        // ==============================
+        // 4. IN-PERSON CONSULTATION
+        // ==============================
+
+        inPersonTab.addEventListener("click", function () {
+          inPersonTab.classList.add("selected");
+
+          videoTab.classList.remove("selected");
+
+          inPersonTab.querySelector(".format-check-badge").innerHTML =
+            '<i class="fa-solid fa-check"></i>';
+
+          videoTab.querySelector(".format-check-badge").innerHTML = "";
+
+          selectedFormat = "In-Person Consultation";
+
+          selectedAmount = 0;
+
+          summaryModeText.textContent = "In-Person Visit";
+
+          modeIcon.className = "fa-solid fa-hospital";
+
+          dueTitleText.textContent = "Due Today";
+
+          dueSubText.textContent = "Pay at Clinic";
+
+          totalPriceDisplay.textContent = "₹0.00";
+
+          payBtnText.textContent =
+            "Review & Confirm (Pay at Clinic – ₹0 Due Now)";
+
+          policyText.innerHTML =
+            "<strong>In-person clinic visits:</strong> " +
+            "Pay at front desk check-in (₹0 charged now). " +
+            "Video Consultations require advance online payment.";
+        });
+
+        // ==============================
+        // 5. VIDEO CONSULTATION
+        // ==============================
+
+        videoTab.addEventListener("click", function () {
+          videoTab.classList.add("selected");
+
+          inPersonTab.classList.remove("selected");
+
+          videoTab.querySelector(".format-check-badge").innerHTML =
+            '<i class="fa-solid fa-check"></i>';
+
+          inPersonTab.querySelector(".format-check-badge").innerHTML = "";
+
+          selectedFormat = "Video Consultation";
+
+          selectedAmount = 95;
+
+          summaryModeText.textContent = "Video Consultation";
+
+          modeIcon.className = "fa-solid fa-video";
+
+          dueTitleText.textContent = "Total Due";
+
+          dueSubText.textContent = "Online Payment Required";
+
+          totalPriceDisplay.textContent = "₹95.00";
+
+          payBtnText.textContent = "Proceed to Payment (₹95.00)";
+
+          policyText.innerHTML =
+            "Free cancellation up to 2 hours before the scheduled time slot. " +
+            "Full refund will be returned to your primary payment method.";
+        });
+
+        // ==============================
+        // 6. CONFIRM / PAYMENT BUTTON
+        // ==============================
+
+        payButton.addEventListener("click", async function () {
+          // Prevent multiple clicks
+          payButton.disabled = true;
+
+          const originalButtonText = payBtnText.textContent;
+
+          payBtnText.textContent = "Saving Appointment...";
+
+          // ==============================
+          // GET LOGGED-IN USER
+          // ==============================
+
+          const username = localStorage.getItem("username") || "Nickle Mathew";
+
+          const storedEmail = localStorage.getItem("email") || "Not provided";
+
+          // ==============================
+          // GET PATIENT DETAILS
+          // ==============================
+
+          const patientInputs = document.querySelectorAll(
+            ".patient-form-grid .ehr-input",
+          );
+
+          // Full Name
+          const patientName = patientInputs[0]?.value.trim() || username;
+
+          // Age
+          const patientAge = patientInputs[1]?.value.trim() || "";
+
+          // Gender
+          const patientGender = patientInputs[2]?.value.trim() || "";
+
+          // Phone
+          const patientPhone = patientInputs[3]?.value.trim() || "";
+
+          // Email
+          const patientEmail = patientInputs[4]?.value.trim() || storedEmail;
+
+          // Reason
+          const reasonTextarea = document.querySelector(
+            ".patient-form-grid textarea",
+          );
+
+          const reason = reasonTextarea?.value.trim() || "General Consultation";
+
+          // ==============================
+          // CREATE APPOINTMENT DATA
+          // ==============================
+
+          const appointmentData = {
+            // Appointment reference
+            reference: "CP-" + Date.now(),
+
+            // Logged-in account
+            username: username,
+
+            // Patient information
+            patientName: patientName,
+
+            age: patientAge,
+
+            gender: patientGender,
+
+            phone: patientPhone,
+
+            email: patientEmail,
+
+            // Doctor information
+            doctorName: "Dr. Priya Sharma, MD",
+
+            speciality: "Cardiology",
+
+            qualification: "Senior Cardiologist",
+
+            rating: "4.96",
+
+            doctorImage: "https://randomuser.me/api/portraits/women/65.jpg",
+
+            // Appointment schedule
+            date: selectedDate,
+
+            time: selectedTime,
+
+            arrivalTime: "10:15 AM",
+
+            // Consultation
+            format: selectedFormat,
+
+            location:
+              selectedFormat === "Video Consultation"
+                ? "Secure Video Consultation"
+                : "CarePulse Central Medical Hub",
+
+            address:
+              selectedFormat === "Video Consultation"
+                ? "Encrypted online consultation"
+                : "Suite 402, Boston MA",
+
+            // Reason
+            reason: reason,
+
+            // Payment
+            amount: selectedAmount,
+
+            // Status
+            status:
+              selectedFormat === "Video Consultation"
+                ? "Payment Required"
+                : "Pay at Clinic",
+          };
+
+          // ==============================
+          // SHOW DATA IN CONSOLE
+          // ==============================
+
+          console.log("Appointment data being sent:");
+
+          console.log(appointmentData);
+
+          // ==============================
+          // SEND DATA TO NODE.JS
+          // ==============================
+
+          try {
+            const response = await fetch("http://localhost:3000/appointments", {
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json",
+              },
+
+              body: JSON.stringify(appointmentData),
+            });
+
+            // ==============================
+            // READ BACKEND RESPONSE
+            // ==============================
+
+            const data = await response.json();
+
+            console.log("Backend response:");
+
+            console.log(data);
+
+            // ==============================
+            // CHECK SUCCESS
+            // ==============================
+
+            if (!response.ok || !data.success) {
+              alert(data.message || "Unable to save appointment.");
+
+              payButton.disabled = false;
+
+              payBtnText.textContent = originalButtonText;
+
+              return;
+            }
+
+            // ==============================
+            // SAVE MONGODB RECORD LOCALLY
+            // ==============================
+
+            localStorage.setItem(
+              "appointmentData",
+              JSON.stringify(data.appointment),
+            );
+
+            // ==============================
+            // SUCCESS
+            // ==============================
+
+            console.log("Appointment successfully saved to MongoDB.");
+
+            console.log("Appointment reference:", data.appointment.reference);
+
+            // ==============================
+            // REDIRECT
+            // ==============================
+
+            window.location.href = "Appointment_Confirmation.html";
+          } catch (error) {
+            // ==============================
+            // CONNECTION ERROR
+            // ==============================
+
+            console.error("Appointment booking error:", error);
+
+            alert(
+              "Unable to connect to the CarePulse server.\n\n" +
+                "Please make sure Node.js backend is running on port 3000.",
+            );
+
+            payButton.disabled = false;
+
+            payBtnText.textContent = originalButtonText;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

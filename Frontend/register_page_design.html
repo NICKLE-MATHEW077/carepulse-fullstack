@@ -1,0 +1,496 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create an Account - Medoracare</title>
+
+    ```
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-blue: #2563eb;
+        --primary-blue-hover: #1d4ed8;
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+        --text-subtle: #8e8e93;
+        --border-color: #cbd5e1;
+        --bg-light: #f8fafc;
+        --card-bg: #ffffff;
+        --radius-main: 24px;
+        --radius-input: 10px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        height: 100vh;
+        max-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        overflow: hidden;
+      }
+
+      .page-container {
+        width: 100%;
+        max-width: 1180px;
+        height: 100%;
+        max-height: 720px;
+        background: var(--card-bg);
+        border-radius: var(--radius-main);
+        display: flex;
+        box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        padding: 16px;
+        gap: 20px;
+      }
+
+      .form-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 24px;
+        height: 100%;
+      }
+
+      .form-wrapper {
+        width: 100%;
+        max-width: 380px;
+      }
+
+      .header-content {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .header-content h1 {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 6px;
+        letter-spacing: -0.5px;
+      }
+
+      .header-content p {
+        color: var(--text-subtle);
+        font-size: 13.5px;
+        font-weight: 400;
+        line-height: 1.35;
+      }
+
+      .form-group {
+        margin-bottom: 14px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 6px;
+      }
+
+      .input-control {
+        width: 100%;
+        height: 44px;
+        padding: 0 14px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-input);
+        font-size: 14px;
+        color: var(--text-dark);
+        outline: none;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .input-control::placeholder {
+        color: #94a3b8;
+      }
+
+      .input-control:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      .btn-submit {
+        width: 100%;
+        height: 46px;
+        margin-top: 4px;
+        background-color: var(--primary-blue);
+        color: #ffffff;
+        border: none;
+        border-radius: var(--radius-input);
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          transform 0.1s ease;
+      }
+
+      .btn-submit:hover {
+        background-color: var(--primary-blue-hover);
+      }
+
+      .btn-submit:active {
+        transform: scale(0.99);
+      }
+
+      .btn-submit:disabled {
+        background-color: #93c5fd;
+        cursor: not-allowed;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 18px 0;
+        color: #94a3b8;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .divider span {
+        padding: 0 10px;
+        font-size: 12px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .social-login {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 42px;
+        background-color: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-input);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .social-btn:hover {
+        background-color: var(--bg-light);
+        border-color: #94a3b8;
+      }
+
+      .social-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .footer-text {
+        text-align: center;
+        font-size: 13px;
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      .footer-text a {
+        color: var(--primary-blue);
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 2px;
+      }
+
+      .footer-text a:hover {
+        text-decoration: underline;
+      }
+
+      .hero-section {
+        flex: 1.1;
+        background: linear-gradient(
+          180deg,
+          #2b66f6 0%,
+          #4f8bf9 50%,
+          #91c4ff 100%
+        );
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 36px 32px 0 32px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        height: 100%;
+      }
+
+      .hero-content {
+        max-width: 440px;
+        z-index: 2;
+      }
+
+      .hero-title {
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+      }
+
+      .hero-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .hero-image-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: 10px;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .hero-image {
+        max-width: 100%;
+        max-height: 380px;
+        object-fit: contain;
+        object-position: bottom;
+        display: block;
+      }
+
+      @media (max-width: 900px) {
+        body {
+          overflow: auto;
+          height: auto;
+        }
+
+        .page-container {
+          flex-direction: column;
+          max-height: none;
+          height: auto;
+          padding: 16px;
+        }
+
+        .hero-section {
+          padding: 30px 20px 0 20px;
+          min-height: 380px;
+        }
+
+        .hero-title {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .form-section {
+          padding: 10px 0;
+        }
+
+        .social-login {
+          grid-template-columns: 1fr;
+        }
+
+        .header-content h1 {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-container">
+      ```
+      <!-- Registration Form -->
+      <section class="form-section">
+        <div class="form-wrapper">
+          <div class="header-content">
+            <h1>Create an Account</h1>
+
+            <p>
+              Join now to Medoracare make your appointment booking experience
+              better
+            </p>
+          </div>
+
+          <!-- REGISTER FORM -->
+          <form id="registerForm">
+            <!-- Username -->
+            <div class="form-group">
+              <label for="username">Username</label>
+
+              <input
+                type="text"
+                id="username"
+                class="input-control"
+                placeholder="Enter your username"
+                autocomplete="username"
+                required
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">E-mail</label>
+
+              <input
+                type="email"
+                id="email"
+                class="input-control"
+                placeholder="Enter your E-mail Id"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="password">Password</label>
+
+              <input
+                type="password"
+                id="password"
+                class="input-control"
+                placeholder="Enter your password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+
+            <!-- Register Button -->
+            <button type="submit" class="btn-submit" id="registerButton">
+              Register
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="divider">
+            <span>Or Register with</span>
+          </div>
+
+          <!-- Social Login -->
+          <div class="social-login">
+            <!-- Google -->
+            <button type="button" class="social-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                <path
+                  fill="#FFC107"
+                  d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+                />
+
+                <path
+                  fill="#FF3D00"
+                  d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+                />
+
+                <path
+                  fill="#4CAF50"
+                  d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+                />
+
+                <path
+                  fill="#1976D2"
+                  d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+                />
+              </svg>
+
+              Google
+            </button>
+
+            <!-- Apple -->
+            <button type="button" class="social-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 170 170"
+                fill="currentColor"
+              >
+                <path
+                  d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.33.13-9.13-1.9-14.4-6.08-3.38-2.73-7.23-7.33-11.56-13.82-7.01-10.43-12.44-21.84-16.29-34.23-3.85-12.39-5.78-24.36-5.78-35.91 0-14.4 3.69-26.23 11.07-35.48 7.38-9.25 16.64-13.93 27.78-14.05 4.87 0 10.13 1.2 15.78 3.59 5.65 2.39 9.38 3.59 11.2 3.59 1.52 0 5.31-1.25 11.38-3.75 6.07-2.5 11.22-3.64 15.45-3.44 11.96.65 21.43 4.96 28.4 12.93-10.42 6.3-15.53 15.17-15.32 26.62.22 9.02 3.69 16.59 10.42 22.72 6.73 6.13 14.75 9.68 24.06 10.65-2.5 7.39-5.87 14.89-10.12 22.5zM119.22 31.08c0-6.73 2.45-13.31 7.35-19.74 4.9-6.43 11.07-10.45 18.51-12.06.33 1.3.49 2.5.49 3.59 0 6.63-2.55 13.25-7.65 19.86-5.1 6.61-11.28 10.51-18.54 11.7-.11-.98-.16-2.1-.16-3.35z"
+                />
+              </svg>
+
+              Apple
+            </button>
+          </div>
+
+          <!-- Login Link -->
+          <p class="footer-text">
+            Already have an account?
+            <a href="login_page_design (1).html"> Sign-in. </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Right Side Hero -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h2 class="hero-title">Empowering your Everyday Wellness journey</h2>
+
+          <p class="hero-subtitle">
+            Join over 2.4 Million patients enjoying instant health visit
+          </p>
+        </div>
+
+        <div class="hero-image-container">
+          <img
+            class="hero-image"
+            src="D:\CarePulse\Frontend\image\freepik-export-202406130959061bQ8 1.png"
+            alt="Medical Team"
+            onerror="
+              this.src =
+                'https://placehold.co/600x500/2b66f6/ffffff?text=Replace+With+Register.png'
+            "
+          />
+        </div>
+      </section>
+    </div>
+
+    <!-- Backend Connection -->
+    <script src="register.js"></script>
+  </body>
+</html>

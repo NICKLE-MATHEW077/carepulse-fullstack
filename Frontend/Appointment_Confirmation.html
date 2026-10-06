@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Confirmation Summary - CarePulse Health Network</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                50: "#f0f5ff",
+                100: "#e0ebff",
+                200: "#bae0ff",
+                500: "#1d61e8",
+                600: "#1251c9",
+                700: "#0c3ea1",
+                800: "#0a3283",
+                900: "#082664",
+              },
+              slatebg: "#f3f6fc",
+              cardbg: "#f8fafc",
+              subtleborder: "#e2e8f0",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f3f6fc;
+        color: #0f172a;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Header Layout Styles */
+      .header {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 0.75rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        display: flex;
+        flex-direction: column;
+        font-weight: 800;
+        color: #1251c9;
+        font-size: 1.25rem;
+        line-height: 1;
+      }
+      .logo small {
+        font-size: 0.6rem;
+        color: #64748b;
+        letter-spacing: 0.05em;
+        margin-top: 2px;
+      }
+      .navbar {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #475569;
+      }
+      .navbar a:hover,
+      .navbar a.active {
+        color: #1251c9;
+        font-weight: 600;
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .header-actions .login {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #334155;
+      }
+      .header-actions .primary-btn {
+        background-color: #1251c9;
+        color: #ffffff;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: background-color 0.2s;
+      }
+      .header-actions .primary-btn:hover {
+        background-color: #0c3ea1;
+      }
+      .profile img {
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        object-fit: cover;
+        border: 1px solid #cbd5e1;
+      }
+
+      /* Print styling overrides */
+      @media print {
+        body {
+          background-color: #ffffff;
+        }
+        .no-print {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col justify-between text-slate-800">
+    <!-- Top Navigation Bar -->
+    <header class="header">
+      <div class="logo">
+        <span>CarePulse</span>
+        <small>HEALTH NETWORK</small>
+      </div>
+
+      <nav class="navbar hidden md:flex">
+        <a href="#">Home</a>
+        <a href="#" class="active">Find a Doctor</a>
+        <a href="#">Departments</a>
+        <a href="#">Appointments</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#" class="login">Log In</a>
+        <a href="#" class="primary-btn">Book Appointment</a>
+
+        <div class="profile">
+          <img
+            src="https://randomuser.me/api/portraits/women/44.jpg"
+            alt="Profile"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow space-y-5"
+    >
+      <!-- Top Concierge Header & Stepper Card -->
+      <section
+        class="bg-white rounded-xl p-5 border border-slate-200/80 shadow-sm"
+      >
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6"
+        >
+          <div>
+            <span
+              class="text-[11px] font-bold text-brand-600 uppercase tracking-wider block"
+              >CAREPULSE SCHEDULING CONCIERGE</span
+            >
+            <h1 class="text-2xl font-bold text-slate-900 mt-0.5">
+              Schedule Medical Consultation
+            </h1>
+          </div>
+          <div>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold"
+            >
+              <i class="fa-solid fa-lock text-brand-600 text-xs"></i>
+              256-Bit Encrypted Telehealth Link
+            </span>
+          </div>
+        </div>
+
+        <!-- Progress Stepper Component -->
+        <div class="relative px-2 pt-2 pb-1">
+          <!-- Connecting Line -->
+          <div
+            class="absolute top-[18px] left-[5%] right-[5%] h-[3px] bg-brand-500 -z-0"
+          ></div>
+
+          <div class="grid grid-cols-5 relative z-10 text-center">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center group">
+              <div
+                class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <span class="text-[11px] font-bold text-brand-600 mt-2"
+                >Step 1</span
+              >
+              <span class="text-xs font-semibold text-slate-800 hidden sm:block"
+                >Doctor & Specialty</span
+              >
+            </div>
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center group">
+              <div
+                class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <span class="text-[11px] font-bold text-brand-600 mt-2"
+                >Step 2</span
+              >
+              <span class="text-xs font-semibold text-slate-800 hidden sm:block"
+                >Date & Time</span
+              >
+            </div>
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center group">
+              <div
+                class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <span class="text-[11px] font-bold text-brand-600 mt-2"
+                >Step 3</span
+              >
+              <span class="text-xs font-semibold text-slate-800 hidden sm:block"
+                >Patient Details</span
+              >
+            </div>
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center group">
+              <div
+                class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <span class="text-[11px] font-bold text-brand-600 mt-2"
+                >Step 4</span
+              >
+              <span class="text-xs font-semibold text-slate-800 hidden sm:block"
+                >Consultation Format</span
+              >
+            </div>
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center group">
+              <div
+                class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <span class="text-[11px] font-bold text-brand-600 mt-2"
+                >Step 5</span
+              >
+              <span class="text-xs font-semibold text-slate-800 hidden sm:block"
+                >Payment Confirm</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appointment Successfully Confirmed Hero Box -->
+      <section
+        class="bg-white rounded-xl border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col md:flex-row items-stretch justify-between"
+      >
+        <!-- Blue Accent Line on Left Edge -->
+        <div class="w-2 bg-brand-500 self-stretch hidden md:block"></div>
+
+        <div
+          class="p-6 flex-grow flex flex-col md:flex-row items-start md:items-center gap-5"
+        >
+          <div
+            class="w-14 h-14 rounded-full bg-brand-50 border border-brand-200 flex items-center justify-center flex-shrink-0 text-brand-600 shadow-sm"
+          >
+            <i class="fa-solid fa-check text-2xl"></i>
+          </div>
+          <div class="space-y-1.5 max-w-2xl">
+            <div class="flex flex-wrap items-center gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded bg-brand-50 text-brand-700 font-bold text-[11px] tracking-wide border border-brand-200/60 uppercase"
+              >
+                REFERENCE CODE #CP-84920-OCT26
+              </span>
+              <span
+                class="px-2.5 py-0.5 rounded bg-blue-50 text-brand-600 font-semibold text-[11px] tracking-wide border border-blue-100 flex items-center gap-1"
+              >
+                <i class="fa-regular fa-bell text-[10px]"></i> Instant SMS &
+                Email Sent
+              </span>
+            </div>
+            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">
+              Appointment Successfully Confirmed!
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              A verified clinical reservation voucher and pre-visit dossier have
+              been dispatched to
+              <span class="font-semibold text-slate-900"
+                >nickle.cooper@email.com</span
+              >
+              and mobile
+              <span class="font-semibold text-slate-900">+1 (555) 382-9912</span
+              >.
+            </p>
+          </div>
+        </div>
+
+        <!-- Triage Routing Card Block -->
+        <div
+          class="m-4 md:m-5 bg-slate-50 border border-slate-200 rounded-lg p-4 text-center md:text-right flex flex-col justify-center items-center md:items-end min-w-[210px]"
+        >
+          <span
+            class="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider block"
+            >TRIAGE ROUTING</span
+          >
+          <span class="text-base font-bold text-brand-600 block mt-0.5"
+            >Priority Clinic Bay 4</span
+          >
+          <span
+            class="text-xs font-semibold text-slate-600 flex items-center gap-1 mt-1"
+          >
+            <i class="fa-regular fa-clock text-slate-500 text-[11px]"></i>
+            Arrive by 10:15 AM
+          </span>
+        </div>
+      </section>
+
+      <!-- Two Column Main Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- LEFT COLUMN: Main Pass & Details (8 Cols) -->
+        <div class="lg:col-span-8 space-y-6">
+          <!-- Official Clinical Pass Card -->
+          <div
+            class="bg-white rounded-xl border border-slate-200/80 shadow-sm overflow-hidden"
+          >
+            <!-- Pass Header -->
+            <div
+              class="bg-brand-600 px-6 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between text-white gap-2"
+            >
+              <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-square-plus text-lg"></i>
+                <div>
+                  <h3 class="font-bold text-sm tracking-wide">
+                    Official Clinical Appointment Pass
+                  </h3>
+                  <p class="text-[11px] text-brand-100 font-normal">
+                    CarePulse Cardiovascular Institute • Boston Central Campus
+                  </p>
+                </div>
+              </div>
+              <span
+                class="bg-brand-800/80 text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded font-bold border border-brand-500/50 self-start sm:self-auto"
+              >
+                CONFIRMED & SCHEDULED
+              </span>
+            </div>
+
+            <!-- Content Body -->
+            <div class="p-6 space-y-6">
+              <!-- Doctor & QR Header Block -->
+              <div
+                class="border border-slate-100 rounded-xl p-4 bg-slate-50/50 flex flex-col sm:flex-row items-center justify-between gap-4"
+              >
+                <!-- Doctor Profile Info -->
+                <div class="flex items-start space-x-4">
+                  <div class="relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200"
+                      alt="Dr. Priya Sharma"
+                      class="w-20 h-20 rounded-lg object-cover border border-slate-200 shadow-sm"
+                      onerror="
+                        this.src =
+                          'https://placehold.co/150x150/cbd5e1/1e293b?text=Doctor'
+                      "
+                    />
+                    <div
+                      class="absolute -bottom-1 -right-1 bg-brand-500 text-white text-[10px] p-1 rounded-full border-2 border-white flex items-center justify-center w-5 h-5"
+                    >
+                      <i class="fa-solid fa-user-check"></i>
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="bg-brand-50 text-brand-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase"
+                        >CARDIOLOGY</span
+                      >
+                      <span
+                        class="text-xs text-slate-600 font-semibold flex items-center gap-1"
+                      >
+                        <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                        4.96
+                        <span class="text-slate-400 font-normal"
+                          >(1,420 reviews)</span
+                        >
+                      </span>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900">
+                      Dr. Priya Sharma, MD
+                    </h4>
+                    <p class="text-xs font-semibold text-slate-600">
+                      Senior Attending Cardiologist • Dept. of Cardiovascular
+                      Medicine
+                    </p>
+                    <p class="text-[11px] text-brand-600 font-medium">
+                      Board-Certified in Clinical Cardiac Electrophysiology &
+                      Echo
+                    </p>
+                  </div>
+                </div>
+
+                <!-- QR Code Block -->
+                <div
+                  class="flex flex-col items-center justify-center p-3 bg-white border border-slate-200 rounded-lg shadow-2xs min-w-[120px]"
+                >
+                  <!-- Simulated Clean SVG QR Code -->
+                  <svg
+                    class="w-16 h-16"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="100" height="100" fill="white" />
+                    <path
+                      d="M0 0H35V35H0V0ZM10 10V25H25V10H10Z"
+                      fill="#0f172a"
+                    />
+                    <path
+                      d="M65 0H100V35H65V0ZM75 10V25H90V10H75Z"
+                      fill="#0f172a"
+                    />
+                    <path
+                      d="M0 65H35V100H0V65ZM10 75V90H25V75H10Z"
+                      fill="#0f172a"
+                    />
+                    <rect x="15" y="15" width="5" height="5" fill="#0f172a" />
+                    <rect x="80" y="15" width="5" height="5" fill="#0f172a" />
+                    <rect x="15" y="80" width="5" height="5" fill="#0f172a" />
+                    <rect x="45" y="10" width="10" height="15" fill="#0f172a" />
+                    <rect x="40" y="40" width="20" height="20" fill="#0f172a" />
+                    <rect x="70" y="50" width="15" height="10" fill="#0f172a" />
+                    <rect x="50" y="75" width="15" height="20" fill="#0f172a" />
+                    <rect x="80" y="80" width="15" height="15" fill="#0f172a" />
+                  </svg>
+                  <span
+                    class="text-[9px] font-extrabold text-slate-500 tracking-wider uppercase mt-1"
+                    >SCAN AT KIOSK</span
+                  >
+                </div>
+              </div>
+
+              <!-- Divider Title -->
+              <div class="relative text-center my-4">
+                <div
+                  class="absolute inset-0 flex items-center"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="w-full border-t border-dashed border-slate-300"
+                  ></div>
+                </div>
+                <div class="relative inline-block px-4 bg-white">
+                  <span
+                    class="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest"
+                    >PATIENT & CLINICAL PARAMETERS</span
+                  >
+                </div>
+              </div>
+
+              <!-- 6 Parameter Cards Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <!-- Card 1 -->
+                <div
+                  class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/70 space-y-1"
+                >
+                  <div
+                    class="flex items-center space-x-1.5 text-brand-600 font-bold text-[10px] uppercase tracking-wider"
+                  >
+                    <i class="fa-regular fa-calendar text-xs"></i>
+                    <span>DATE & TIME</span>
+                  </div>
+                  <div class="text-xs font-bold text-slate-900">
+                    Monday, Oct 12, 2026
+                  </div>
+                  <div class="text-sm font-extrabold text-brand-600">
+                    10:30 AM EST
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium pt-0.5">
+                    Slot Duration: 45 Minutes
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                  class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/70 space-y-1"
+                >
+                  <div
+                    class="flex items-center space-x-1.5 text-brand-600 font-bold text-[10px] uppercase tracking-wider"
+                  >
+                    <i class="fa-solid fa-video text-xs"></i>
+                    <span>VISIT FORMAT</span>
+                  </div>
+                  <div class="text-xs font-bold text-slate-900">
+                    In-Person Consultation
+                  </div>
+                  <div class="text-xs font-semibold text-slate-700">
+                    Cardiology Suite 402
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium pt-0.5">
+                    Telehealth backup available upon call
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                  class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/70 space-y-1"
+                >
+                  <div
+                    class="flex items-center space-x-1.5 text-brand-600 font-bold text-[10px] uppercase tracking-wider"
+                  >
+                    <i class="fa-regular fa-user text-xs"></i>
+                    <span>PATIENT DOSSIER</span>
+                  </div>
+                  <div class="text-xs font-bold text-slate-900">
+                    Nickle Cooper
+                  </div>
+                  <div class="text-[11px] text-slate-700 font-medium">
+                    <span class="font-bold">MRN :</span> #CP-884920
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">
+                    DOB: 04/18/1994 (Age 32)
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                  class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/70 space-y-1"
+                >
+                  <div
+                    class="flex items-center space-x-1.5 text-brand-600 font-bold text-[10px] uppercase tracking-wider"
+                  >
+                    <i class="fa-solid fa-location-dot text-xs"></i>
+                    <span>CLINICAL LOCATION</span>
+                  </div>
+                  <div class="text-xs font-bold text-slate-900">
+                    CarePulse Central Pavilion
+                  </div>
+                  <div class="text-[11px] text-slate-600 leading-tight">
+                    750 Healthcare Blvd, 4th Floor
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">
+                    Boston, MA 02115 • Elevators West
+                  </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                  class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/70 space-y-1"
+                >
+                  <div
+                    class="flex items-center space-x-1.5 text-brand-600 font-bold text-[10px] uppercase tracking-wider"
+                  >
+                    <i class="fa-solid fa-stethoscope text-xs"></i>
+                    <span>CLINICAL REASON</span>
+                  </div>
+                  <div class="text-xs font-bold text-slate-900">
+                    Routine Cardiology Check
+                  </div>
+                  <div class="text-[11px] text-slate-600 leading-tight">
+                    Baseline 12-lead ECG review
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">
+                    Preventive cardiac risk evaluation
+                  </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div
+                  class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/70 space-y-1"
+                >
+                  <div
+                    class="flex items-center space-x-1.5 text-brand-600 font-bold text-[10px] uppercase tracking-wider"
+                  >
+                    <i class="fa-regular fa-credit-card text-xs"></i>
+                    <span>BILLING & COPAY</span>
+                  </div>
+                  <div class="text-xs font-bold text-slate-900">
+                    BlueCross Choice Plus
+                  </div>
+                  <div class="text-[11px] text-slate-600">
+                    Policy: #BC-994821
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">
+                    Estimated Copay:
+                    <span class="font-semibold text-slate-800">$25.00</span> at
+                    check-in
+                  </div>
+                </div>
+              </div>
+
+              <!-- Document Attachment Box -->
+              <div
+                class="bg-slate-50/80 border border-slate-200 rounded-lg p-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+              >
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-blue-100/70 border border-blue-200 flex items-center justify-center text-brand-600 flex-shrink-0"
+                  >
+                    <i class="fa-regular fa-file-lines text-lg"></i>
+                  </div>
+                  <div class="space-y-0.5">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs font-bold text-slate-900"
+                        >Previous_ECG_Report_July2025.pdf</span
+                      >
+                      <span
+                        class="bg-blue-100 text-brand-700 text-[10px] font-bold px-2 py-0.2 rounded-full flex items-center gap-1"
+                      >
+                        <i class="fa-solid fa-circle-check text-[9px]"></i>
+                        Verified in EHR
+                      </span>
+                    </div>
+                    <p class="text-[11px] text-slate-500">
+                      Uploaded during intake • Synced to Dr. Sharma's clinical
+                      terminal
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="text-xs font-bold text-brand-600 hover:text-brand-800 flex items-center gap-1.5 px-3 py-1.5 rounded hover:bg-slate-200/60 transition-colors self-end sm:self-center"
+                >
+                  <i class="fa-regular fa-eye"></i> Preview File
+                </button>
+              </div>
+            </div>
+
+            <!-- Actions Toolbar Footer -->
+            <div
+              class="bg-slate-100/70 border-t border-slate-200 px-6 py-3.5 flex flex-wrap items-center justify-between gap-2"
+            >
+              <div class="flex flex-wrap items-center gap-2">
+                <button
+                  class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold px-3.5 py-2 rounded-lg flex items-center gap-1.5 shadow-2xs transition-colors"
+                >
+                  <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+                  <i class="fa-solid fa-chevron-down text-[10px] ml-0.5"></i>
+                </button>
+                <button
+                  onclick="window.print()"
+                  class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-xs font-semibold px-3.5 py-2 rounded-lg flex items-center gap-1.5 shadow-2xs transition-colors"
+                >
+                  <i class="fa-solid fa-print text-slate-500"></i> Print
+                </button>
+                <button
+                  class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-xs font-semibold px-3.5 py-2 rounded-lg flex items-center gap-1.5 shadow-2xs transition-colors"
+                >
+                  <i class="fa-regular fa-file-pdf text-slate-500"></i> PDF Pass
+                </button>
+              </div>
+              <a
+                href="#"
+                class="text-brand-600 hover:text-brand-800 text-xs font-bold flex items-center gap-1 py-1"
+              >
+                Go to Dashboard
+                <i class="fa-solid fa-arrow-right text-[11px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- What Happens on Visit Day Card -->
+          <div
+            class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm space-y-4"
+          >
+            <div class="flex items-center space-x-2">
+              <i
+                class="fa-solid fa-person-walking-arrow-right text-brand-600"
+              ></i>
+              <h3 class="text-sm font-bold text-slate-900">
+                What Happens on Visit Day?
+              </h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Step 1 -->
+              <div
+                class="bg-slate-50 p-4 rounded-lg border border-slate-200/60 relative space-y-1.5"
+              >
+                <div
+                  class="w-6 h-6 rounded-md bg-brand-500 text-white font-bold text-xs flex items-center justify-center mb-2"
+                >
+                  1
+                </div>
+                <h4 class="text-xs font-bold text-slate-900">
+                  Touchless Kiosk
+                </h4>
+                <p class="text-[11px] text-slate-600 leading-relaxed">
+                  Scan the pass QR code at the 4th-floor kiosk to alert Dr.
+                  Sharma's clinical nurse immediately.
+                </p>
+              </div>
+
+              <!-- Step 2 -->
+              <div
+                class="bg-slate-50 p-4 rounded-lg border border-slate-200/60 relative space-y-1.5"
+              >
+                <div
+                  class="w-6 h-6 rounded-md bg-brand-500 text-white font-bold text-xs flex items-center justify-center mb-2"
+                >
+                  2
+                </div>
+                <h4 class="text-xs font-bold text-slate-900">
+                  Vitals & ECG Triage
+                </h4>
+                <p class="text-[11px] text-slate-600 leading-relaxed">
+                  A medical assistant will record resting vitals and prepare you
+                  for an optional 5-minute lead ECG trace.
+                </p>
+              </div>
+
+              <!-- Step 3 -->
+              <div
+                class="bg-slate-50 p-4 rounded-lg border border-slate-200/60 relative space-y-1.5"
+              >
+                <div
+                  class="w-6 h-6 rounded-md bg-brand-500 text-white font-bold text-xs flex items-center justify-center mb-2"
+                >
+                  3
+                </div>
+                <h4 class="text-xs font-bold text-slate-900">
+                  Physician Consultation
+                </h4>
+                <p class="text-[11px] text-slate-600 leading-relaxed">
+                  Full 45-minute comprehensive diagnostic review and personal
+                  cardiac longevity plan formulation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Sidebar Guidance & Info (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <!-- Pre-Visit Guidance Card -->
+          <div
+            class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm space-y-4"
+          >
+            <div
+              class="flex items-center justify-between border-b border-slate-100 pb-3"
+            >
+              <div class="flex items-center space-x-2">
+                <i class="fa-regular fa-clipboard text-brand-600"></i>
+                <h3 class="text-sm font-bold text-slate-900">
+                  Pre-Visit Guidance
+                </h3>
+              </div>
+              <span
+                class="bg-blue-50 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded border border-blue-200 uppercase"
+              >
+                Mandatory
+              </span>
+            </div>
+
+            <div class="space-y-3.5 text-xs">
+              <!-- Item 1 -->
+              <div class="flex items-start space-x-2.5">
+                <i
+                  class="fa-regular fa-circle-check text-brand-600 text-sm mt-0.5 flex-shrink-0"
+                ></i>
+                <p class="text-slate-600">
+                  <strong class="text-slate-900 font-semibold"
+                    >Arrival Time:</strong
+                  >
+                  Please arrive 15 minutes before 10:30 AM for baseline BP and
+                  intake paperwork.
+                </p>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="flex items-start space-x-2.5">
+                <i
+                  class="fa-regular fa-circle-check text-brand-600 text-sm mt-0.5 flex-shrink-0"
+                ></i>
+                <p class="text-slate-600">
+                  <strong class="text-slate-900 font-semibold"
+                    >What to Bring:</strong
+                  >
+                  Government Photo ID (Driver's License or Passport) and
+                  physical health insurance card.
+                </p>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="flex items-start space-x-2.5">
+                <i
+                  class="fa-regular fa-circle-check text-brand-600 text-sm mt-0.5 flex-shrink-0"
+                ></i>
+                <p class="text-slate-600">
+                  <strong class="text-slate-900 font-semibold"
+                    >Current Medications:</strong
+                  >
+                  Bring complete pill bottles or photos of current daily
+                  prescription dosages.
+                </p>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="flex items-start space-x-2.5">
+                <i
+                  class="fa-regular fa-circle-check text-brand-600 text-sm mt-0.5 flex-shrink-0"
+                ></i>
+                <p class="text-slate-600">
+                  <strong class="text-slate-900 font-semibold"
+                    >Clothing:</strong
+                  >
+                  Wear comfortable, loose two-piece attire suitable for resting
+                  electrode attachment.
+                </p>
+              </div>
+            </div>
+
+            <!-- Parking Note Box -->
+            <div
+              class="bg-slate-50 border border-slate-200/80 rounded-lg p-3 flex items-start space-x-2.5 text-xs text-slate-600"
+            >
+              <span
+                class="w-5 h-5 bg-brand-600 text-white font-extrabold rounded flex items-center justify-center text-[10px] flex-shrink-0 mt-0.5"
+                >P</span
+              >
+              <p class="text-[11px] leading-snug">
+                Free 2-Hour validated parking at Pavilion Garage B. Present pass
+                to lobby desk.
+              </p>
+            </div>
+          </div>
+
+          <!-- Need to Change? Card -->
+          <div
+            class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm space-y-3"
+          >
+            <div class="flex items-center space-x-2">
+              <i class="fa-regular fa-calendar-xmark text-brand-600"></i>
+              <h3 class="text-sm font-bold text-slate-900">Need to Change?</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              You can freely reschedule or cancel with zero administrative
+              penalty up to
+              <strong class="text-slate-900 font-semibold"
+                >2 hours prior</strong
+              >
+              (by Monday, Oct 12 at 8:30 AM EST).
+            </p>
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <button
+                class="bg-blue-50 hover:bg-blue-100 text-brand-700 font-bold text-xs py-2 px-3 rounded-lg text-center transition-colors"
+              >
+                Reschedule Slot
+              </button>
+              <button
+                class="bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs py-2 px-3 rounded-lg text-center transition-colors"
+              >
+                Cancel Visit
+              </button>
+            </div>
+          </div>
+
+          <!-- Campus Wayfinding Card -->
+          <div
+            class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm space-y-3"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-map-location-dot text-brand-600"></i>
+                <h3 class="text-sm font-bold text-slate-900">
+                  Campus Wayfinding
+                </h3>
+              </div>
+              <span class="text-[10px] font-bold text-slate-500"
+                >Suite 402</span
+              >
+            </div>
+
+            <!-- Map Box Graphic -->
+            <div
+              class="relative rounded-lg overflow-hidden border border-slate-200 h-32 bg-slate-200 flex flex-col justify-end p-3"
+            >
+              <!-- Map Decorative Background graphic -->
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-slate-300 via-blue-100 to-slate-200 opacity-90"
+              ></div>
+              <!-- Grid lines overlay -->
+              <div
+                class="absolute inset-0"
+                style="
+                  background-image: radial-gradient(
+                    #cbd5e1 1px,
+                    transparent 1px
+                  );
+                  background-size: 12px 12px;
+                "
+              ></div>
+
+              <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-4 bg-brand-500/20 rounded-full animate-pulse"
+              ></div>
+
+              <div
+                class="relative z-10 flex items-center justify-between w-full"
+              >
+                <div>
+                  <div class="text-xs font-bold text-slate-900">
+                    Central Medical Pavilion
+                  </div>
+                  <div class="text-[10px] text-slate-700 font-medium">
+                    Level 4 West • Boston, MA
+                  </div>
+                </div>
+                <button
+                  class="bg-brand-600 hover:bg-brand-700 text-white text-[10px] font-bold px-2.5 py-1 rounded shadow-2xs flex items-center gap-1"
+                >
+                  Navigate
+                  <i
+                    class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                  ></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Phone desk contact -->
+            <div
+              class="bg-slate-50 border border-slate-200/80 rounded-lg p-2.5 flex items-center justify-between text-xs"
+            >
+              <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-headset text-brand-600"></i>
+                <div>
+                  <span
+                    class="text-[10px] text-slate-500 block leading-tight font-medium"
+                    >Cardiology Direct Desk</span
+                  >
+                  <span class="font-bold text-slate-900 text-xs"
+                    >(800) 424-9111 ext. 402</span
+                  >
+                </div>
+              </div>
+              <a
+                href="tel:8004249111"
+                class="text-slate-400 hover:text-brand-600 p-1"
+              >
+                <i class="fa-solid fa-phone text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- HIPAA Compliance Badge Card -->
+          <div
+            class="bg-slate-100/80 border border-slate-200/80 rounded-xl p-3.5 flex items-start space-x-3 text-xs text-slate-600"
+          >
+            <i
+              class="fa-solid fa-shield-halved text-brand-600 text-base mt-0.5 flex-shrink-0"
+            ></i>
+            <div>
+              <span class="font-bold text-slate-900 block text-[11px]"
+                >Protected Health Information</span
+              >
+              <p class="text-[10px] text-slate-500 leading-normal">
+                Your medical files and appointment credentials are encrypted
+                with 256-bit HIPAA compliant protocols.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Help CTA Box -->
+      <section
+        class="bg-white border border-slate-200/80 rounded-xl p-5 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4"
+      >
+        <div class="flex items-center space-x-3.5">
+          <div
+            class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-brand-600 flex-shrink-0"
+          >
+            <i class="fa-regular fa-comments text-lg"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-slate-900">
+              Have Questions Before Monday?
+            </h4>
+            <p class="text-xs text-slate-600">
+              Our dedicated Patient Care Concierge is available 24 hours a day
+              to answer medication and visit inquiries.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button
+            class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors"
+          >
+            <i class="fa-regular fa-message text-brand-600"></i> Live Nurse Chat
+          </button>
+          <button
+            class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors"
+          >
+            <i class="fa-solid fa-phone text-xs"></i> Call Support
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="bg-white border-t border-slate-200 mt-10 py-6 text-center text-xs text-slate-500"
+    >
+      <p>© 2026 CarePulse Health Network. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
